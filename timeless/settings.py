@@ -139,3 +139,5 @@ THUMBNAIL_ALIASES = {
         'thumbnail': {'size': (100, 100), 'crop': 'scale'},
     },
 }
+
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
