@@ -136,6 +136,6 @@ REST_FRAMEWORK = {
 
 THUMBNAIL_ALIASES = {
     '': {
-        'thumbnail': {'size': (200, 200), 'crop': 'scale'},
+        'thumbnail': {'size': (100, 100), 'crop': 'scale'},
     },
 }
