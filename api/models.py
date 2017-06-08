@@ -10,9 +10,12 @@ from api.utils import upload_directory_path
 class Gallery(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
+    position = models.IntegerField(default=0)
+    published = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = _('Galleries')
+        ordering = ['position']
 
     def __str__(self):
         return self.title
