@@ -1,5 +1,6 @@
 Django==1.11.2
 djangorestframework==3.6.3
+easy-thumbnails==2.4.1
 Markdown==2.6.8
 olefile==0.44
 Pillow==4.1.1

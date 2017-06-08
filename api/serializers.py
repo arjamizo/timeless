@@ -4,9 +4,11 @@ from api.models import GalleryImage, Gallery
 
 
 class GalleryImageSerializer(serializers.ModelSerializer):
+    thumbnail = serializers.ImageField()
+
     class Meta:
         model = GalleryImage
-        fields = ('id', 'title', 'description', 'image')
+        fields = ('id', 'title', 'description', 'image', 'thumbnail')
 
 
 class GallerySerializer(serializers.ModelSerializer):

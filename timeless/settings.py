@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'easy_thumbnails',
 
     'api',
 ]
@@ -131,4 +132,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'thumbnail': {'size': (200, 200), 'crop': 'scale'},
+    },
 }
