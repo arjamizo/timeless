@@ -2,3 +2,5 @@ db.sqlite3
 /env
 *.pyc
 /media
+node_modules
+/front/static/js/app.js

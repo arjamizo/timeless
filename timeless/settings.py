@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
 
     'api',
+    'front',
 ]
 
 MIDDLEWARE = [
