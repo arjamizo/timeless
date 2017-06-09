@@ -19,7 +19,7 @@ class Gallery(models.Model):
         ordering = ['position']
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
 
 class GalleryImage(models.Model):
@@ -45,5 +45,5 @@ class GalleryImage(models.Model):
 
     def __str__(self):
         if self.title:
-            return self.title
-        return _('Untitled image')
+            return str(self.title)
+        return str(_('Untitled image'))
