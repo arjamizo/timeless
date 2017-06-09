@@ -1,1 +1,2 @@
 export const FETCH_GALLERIES = 'FETCH_GALLERIES';
+export const FETCH_GALLERY = 'FETCH_GALLERY';

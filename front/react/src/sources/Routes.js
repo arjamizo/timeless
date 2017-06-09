@@ -1,3 +1,4 @@
 module.exports.Routes = {
-    galleriesUrl: '/api/galleries/'
+    galleriesUrl: '/api/galleries/',
+    galleryUrl: '/api/galleries/:gallery_id/'
 };

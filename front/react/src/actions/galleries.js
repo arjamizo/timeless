@@ -1,6 +1,7 @@
-import { FETCH_GALLERIES } from './const';
+import { FETCH_GALLERIES, FETCH_GALLERY } from './const';
 import { Routes } from '../sources/Routes';
 import { request } from '../sources/ApiSource';
+import _ from 'lodash';
 
 
 function createFetchGalleriesAction(galleries) {
@@ -17,6 +18,26 @@ module.exports.fetchGalleries = () => {
             .then(response => response.json() )
             .then(json => {
                 dispatch(createFetchGalleriesAction(json))
+            });
+    };
+};
+
+
+function createFetchGalleryAction(gallery) {
+    return {
+        type: FETCH_GALLERY,
+        gallery
+    };
+}
+
+
+module.exports.fetchGallery = (galleryId) => {
+    return (dispatch) => {
+        let url = _.replace(Routes.galleryUrl, ':gallery_id', galleryId);
+        return request(url, 'GET')
+            .then(response => response.json())
+            .then(json => {
+                dispatch(createFetchGalleryAction(json))
             });
     };
 };
