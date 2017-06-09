@@ -14,5 +14,5 @@ ReactDOM.render(
     <Provider store={store}>
         <Router routes={routes} history={history} />
     </Provider>,
-    document.getElementById('configurator-component')
+    document.getElementById('app')
 );

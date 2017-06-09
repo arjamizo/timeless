@@ -1,13 +1,16 @@
-{% load static %}
+{% load static compress %}
 
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="utf-8">
     <title>Blog</title>
+    {% compress css %}
+        <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/app.scss' %}" />
+    {% endcompress %}
 </head>
 <body>
-    <div id="configurator-component"></div>
+    <div id="app"></div>
     <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>
