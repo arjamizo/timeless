@@ -12,6 +12,12 @@ class GalleryImageSerializer(serializers.ModelSerializer):
 
 
 class GallerySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Gallery
+        fields = ('id', 'title', 'description')
+
+
+class GalleryDetailsSerializer(serializers.ModelSerializer):
     gallery_images = GalleryImageSerializer(many=True)
 
     class Meta:

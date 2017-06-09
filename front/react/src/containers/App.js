@@ -3,14 +3,19 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Navigation from '../components/Navigation';
+import { fetchGalleries } from '../actions/index';
 
 
 class App extends Component {
+    componentWillMount() {
+        this.props.actions.fetchGalleries();
+    }
+
     render() {
-        const { children } = this.props;
+        const { children, galleries } = this.props;
         return (
             <div>
-                <Navigation />
+                <Navigation galleries={galleries} />
                 {children}
             </div>
         )
@@ -19,11 +24,15 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-    return {};
+    return {
+        galleries: state.galleries
+    };
 }
 
 function mapDispatchToProps(dispatch) {
-    const actions = {};
+    const actions = {
+        fetchGalleries: fetchGalleries
+    };
     return { actions: bindActionCreators(actions, dispatch) };
 }
 
