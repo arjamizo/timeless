@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { fetchGallery } from '../actions/galleries';
+import { fetchGallery, clearGallery } from '../actions/galleries';
+import Gallery from '../components/Gallery';
 
 
 class GalleryPage extends Component {
     componentWillMount() {
         let galleryId = this.props.params.gallery_id;
         this.props.actions.fetchGallery(galleryId);
+    }
+
+    componentWillUnmount() {
+        this.props.actions.clearGallery();
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -25,13 +30,13 @@ class GalleryPage extends Component {
             return (
                 <div>
                     <h1>Galeria: { gallery.title }</h1>
+                    <h2>{ gallery.description }</h2>
+                    <Gallery galleryImages={gallery.gallery_images} />
                 </div>
             )
         }
         return (
-            <div>
-                <h1>Galeria</h1>
-            </div>
+            <div></div>
         )
     }
 }
@@ -45,7 +50,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     const actions = {
-        fetchGallery: fetchGallery
+        fetchGallery: fetchGallery,
+        clearGallery: clearGallery
     };
     return { actions: bindActionCreators(actions, dispatch) };
 }

@@ -1,4 +1,4 @@
-import { FETCH_GALLERIES, FETCH_GALLERY } from './const';
+import { FETCH_GALLERIES, FETCH_GALLERY, CLEAR_GALLERY } from './const';
 import { Routes } from '../sources/Routes';
 import { request } from '../sources/ApiSource';
 import _ from 'lodash';
@@ -39,5 +39,19 @@ module.exports.fetchGallery = (galleryId) => {
             .then(json => {
                 dispatch(createFetchGalleryAction(json))
             });
+    };
+};
+
+
+function createClearGalleryAction() {
+    return {
+        type: CLEAR_GALLERY
+    };
+}
+
+
+module.exports.clearGallery = (galleryId) => {
+    return (dispatch) => {
+        dispatch(createClearGalleryAction());
     };
 };
