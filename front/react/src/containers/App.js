@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Navigation from '../components/Navigation';
-import { fetchGalleries } from '../actions/index';
+import { fetchGalleries } from '../actions/galleries';
 
 
 class App extends Component {
@@ -24,8 +24,9 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
+    console.log(state);
     return {
-        galleries: state.galleries
+        galleries: state.galleries.galleries
     };
 }
 

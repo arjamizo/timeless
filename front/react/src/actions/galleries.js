@@ -1,13 +1,7 @@
-import { HELLO_WORLD, FETCH_GALLERIES } from './const';
+import { FETCH_GALLERIES } from './const';
 import { Routes } from '../sources/Routes';
 import { request } from '../sources/ApiSource';
 
-
-function createHelloWorldAction() {
-    return {
-        type: HELLO_WORLD
-    };
-}
 
 function createFetchGalleriesAction(galleries) {
     return {
@@ -17,16 +11,9 @@ function createFetchGalleriesAction(galleries) {
 }
 
 
-module.exports.helloWorld = () => {
-    return (dispatch) => {
-        dispatch(createHelloWorldAction());
-    };
-};
-
-
 module.exports.fetchGalleries = () => {
     return (dispatch) => {
-        return request(Routes.galleriesUrl, 'get')
+        return request(Routes.galleriesUrl, 'GET')
             .then(response => response.json() )
             .then(json => {
                 dispatch(createFetchGalleriesAction(json))

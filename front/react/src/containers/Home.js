@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -7,12 +5,9 @@ import { bindActionCreators } from 'redux';
 
 class Home extends Component {
     render() {
-        let { message, actions } = this.props;
         return (
             <div>
-                <h1>{ message }</h1>
-                <br />
-                <button onClick={ actions.onClick }>Click</button>
+                <h1>Home</h1>
             </div>
         );
     }
@@ -20,17 +15,12 @@ class Home extends Component {
 
 
 const mapStateToProps = (state) => {
-    return {
-        message: state.helloWorld.message
-    };
+    return {};
 };
 
 
 const mapDispatchToProps = (dispatch) => {
-    const { helloWorld } = require('../actions');
-    const actions = {
-        onClick: helloWorld
-    };
+    const actions = {};
     return { actions: bindActionCreators(actions, dispatch) };
 };
 

@@ -1,2 +1,1 @@
-export const HELLO_WORLD = 'HELLO_WORLD';
 export const FETCH_GALLERIES = 'FETCH_GALLERIES';
