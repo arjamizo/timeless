@@ -1,7 +1,6 @@
 @import 'vendor/reset';
 
-@import 'components/background-banner';
+@import 'global';
 
-html {
-    background: #000;
-}
+@import 'components/background-banner';
+@import 'components/navbar';
