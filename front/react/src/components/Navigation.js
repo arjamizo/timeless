@@ -23,9 +23,6 @@ export default class Navigation extends Component {
           </Link>
           <ul className="links">
             { galleryLinks }
-            <li className="link" key='about-me'>
-              <Link to='/o-mnie'>O mnie</Link>
-            </li>
             <li className="link" key='contact'>
               <Link to='/kontakt'>Kontakt</Link>
             </li>

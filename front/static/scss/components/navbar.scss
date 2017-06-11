@@ -59,7 +59,7 @@
                 transition: .2s linear;
             }
 
-            &:hover:before, &:focus:before {
+            &:hover:before {
                 visibility: visible;
                 transform: scaleX(1);
             }

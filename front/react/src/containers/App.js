@@ -6,6 +6,7 @@ import { fetchGalleries } from '../actions/galleries';
 
 import Navigation from '../components/Navigation';
 import BackgroundBanner from '../components/BackgroundBanner';
+import Footer from '../components/Footer';
 
 
 class App extends Component {
@@ -19,6 +20,10 @@ class App extends Component {
             <div>
                 <BackgroundBanner />
                 <Navigation galleries={galleries} />
+                <div className="main-wrapper page-content-wrapper">
+                    { children }
+                </div>
+                <Footer />
             </div>
         )
     }
