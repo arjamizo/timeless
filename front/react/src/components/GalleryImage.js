@@ -8,7 +8,8 @@ export default class GalleryImage extends Component {
       <a href={ galleryImage.image }
          target='_blank'
          className='gallery-image'
-         style={{width: galleryImage.thumbnail_dimensions.width + 'px'}}>
+         style={{width: galleryImage.thumbnail_dimensions.width + 'px'}}
+         data-lightbox='gallery'>
         <img src={ galleryImage.thumbnail } />
       </a>
     );

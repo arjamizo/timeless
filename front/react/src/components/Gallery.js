@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Freewall } from 'freewall';
+import lightbox from 'lightbox2';
 
 import GalleryImage from './GalleryImage';
 
@@ -7,6 +8,7 @@ import GalleryImage from './GalleryImage';
 export default class Gallery extends Component {
   componentDidMount() {
     this.initFreewall();
+    this.initLightbox();
   }
 
   initFreewall() {
@@ -23,6 +25,13 @@ export default class Gallery extends Component {
     wall.container.find('.gallery-image img').load(function () {
       wall.fitWidth();
     });
+  }
+
+  initLightbox() {
+    console.log(lightbox);
+    lightbox.option({
+      albumLabel: 'Zdjęcie %1 z %2'
+    })
   }
 
   render() {
