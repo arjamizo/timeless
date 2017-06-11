@@ -12,13 +12,12 @@ class GalleryImageViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class GalleryViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Gallery.objects.filter(published=True)
 
     def list(self, request):
-        serializer = GallerySerializer(self.queryset, many=True)
+        serializer = GallerySerializer(Gallery.objects.filter(published=True), many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
-        gallery = get_object_or_404(self.queryset, pk=pk)
+        gallery = get_object_or_404(Gallery.objects.filter(published=True), pk=pk)
         serializer = GalleryDetailsSerializer(gallery)
         return Response(serializer.data)
