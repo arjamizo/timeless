@@ -12,6 +12,7 @@ class GalleryImageViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class GalleryViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Gallery.objects.all()
 
     def list(self, request):
         serializer = GallerySerializer(Gallery.objects.filter(published=True), many=True)
