@@ -5,6 +5,6 @@ import galleries from './galleries';
 
 
 export default combineReducers({
-    galleries: galleries,
-    routing: routing
+  galleries: galleries,
+  routing: routing
 });
