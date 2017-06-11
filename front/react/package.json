@@ -11,6 +11,7 @@
   "dependencies": {
     "babelify": "^6.4.0",
     "browserify": "^14.3.0",
+    "freewall": "^1.0.8",
     "gulp": "^3.9.1",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",

@@ -39,6 +39,13 @@ class GalleryImage(models.Model):
     def thumbnail(self):
         return get_thumbnailer(self.image)['thumbnail']
 
+    @property
+    def thumbnail_dimensions(self):
+        return {
+            'width': self.thumbnail.width,
+            'height': self.thumbnail.height,
+        }
+
     def thumbnail_image_tag(self):
         return mark_safe('<img src="{}" />'.format(self.thumbnail.url))
     thumbnail_image_tag.short_description = _('Preview')

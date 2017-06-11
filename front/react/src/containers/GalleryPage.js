@@ -28,10 +28,10 @@ class GalleryPage extends Component {
         const { gallery } = this.props;
         if (gallery) {
             return (
-                <div>
-                    <h1>Galeria: { gallery.title }</h1>
-                    <h2>{ gallery.description }</h2>
-                    <Gallery galleryImages={gallery.gallery_images} />
+                <div className="gallery-page">
+                    <h1 className="gallery-title">{ gallery.title }</h1>
+                    <div className="gallery-description">{ gallery.description }</div>
+                    <Gallery galleryImages={gallery.gallery_images} key={gallery.id} />
                 </div>
             )
         }
