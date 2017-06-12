@@ -13,11 +13,14 @@ class App extends Component {
   }
 
   render() {
-    const { children, galleries } = this.props;
+    const { children, galleries, navigation } = this.props;
+    const { toggleNavigation } = this.props.actions;
     return (
       <div>
         <BackgroundBanner />
-        <Navigation galleries={galleries}/>
+        <Navigation galleries={ galleries }
+                    expanded={ navigation.expanded }
+                    toggleNavigationAction={ toggleNavigation } />
         <div className='main-wrapper page-content-wrapper'>
           { children }
         </div>
@@ -30,14 +33,17 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    galleries: state.galleries.galleries
+    galleries: state.galleries.galleries,
+    navigation: state.navigation
   };
 }
 
 function mapDispatchToProps(dispatch) {
   const { fetchGalleries } = require('../actions/galleries');
+  const { toggleNavigation } = require('../actions/navigation');
   const actions = {
-    fetchGalleries: fetchGalleries
+    fetchGalleries: fetchGalleries,
+    toggleNavigation: toggleNavigation
   };
   return {actions: bindActionCreators(actions, dispatch)};
 }

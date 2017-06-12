@@ -5,16 +5,21 @@ import util from 'util';
 
 export default class Navigation extends Component {
   render() {
-    const { galleries } = this.props;
+    const { galleries, expanded, toggleNavigationAction } = this.props;
     let galleryLinks = this.createGalleryLinks(galleries);
     return (
       <div className='navbar-wrapper'>
         <div className='fade fade-left'></div>
         <div className='main-wrapper'>
-          <Link to='/'>
-            <img src='/static/images/navbar/logo.png' className='logo'/>
-          </Link>
-          <ul className='links'>
+          <div className='static-links'>
+            <Link to='/' className='home-link'>
+              <img src='/static/images/navbar/logo.png' className='logo'/>
+            </Link>
+            <div className={'burger-link' + (expanded ? ' expanded' : '')}
+                 onClick={ toggleNavigationAction }>
+            </div>
+          </div>
+          <ul className={'links' + (expanded ? ' expanded' : '')}>
             { galleryLinks }
             <li className='link' key='contact'>
               <Link to='/kontakt'>Kontakt</Link>

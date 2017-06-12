@@ -1,21 +1,47 @@
 .navbar-wrapper {
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     display: flex;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
     z-index: 100;
 
     .main-wrapper {
-        height: 50px;
         line-height: 50px;
         background: rgba(255, 255, 255, .9);
+        padding: 0 15px;
+    }
 
-        & > * {
-            display: inline-block;
-            height: 100%;
-            float: left;
+    .static-links {
+        height: 50px;
+    }
+
+    .home-link {
+        display: block;
+        float: left;
+        height: 100%;
+    }
+
+    .burger-link {
+        height: 50px;
+        width: 50px;
+        background: url('/static/images/navbar/burger.png') center center no-repeat;
+        background-size: 40px 40px;
+        transition: all 1s;
+        float: right;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .links {
+        display: block;
+        float: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 1s ease-in-out;
+
+        &.expanded {
+            max-height: 300px;
         }
     }
 
@@ -38,8 +64,10 @@
     }
 
     .link {
-        display: inline-block;
+        display: block;
         font-size: 14px;
+        text-align: center;
+        border-top: 1px dashed rgba(0, 0, 0, .15);
 
         a {
             text-decoration: none;
@@ -65,20 +93,54 @@
                 transform: scaleX(1);
             }
         }
+    }
+}
 
-        &:after {
-            content: '';
-            display: inline-block;
-            width: 1px;
-            height: 19px;
-            background: rgba(0, 0, 0, .15);
-            margin: 0 10px;
-            position: relative;
-            top: 4px;
+
+@media all and (min-width: 960px) {
+    .navbar-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        .main-wrapper {
+            padding: 0;
         }
 
-        &:last-of-type:after {
+        .static-links {
+            display: inline-block;
+            float: left;
+        }
+
+        .burger-link {
             display: none;
+        }
+
+        .links {
+            max-height: 50px;
+            height: 50px;
+            float: left;
+            transition: none;
+        }
+
+        .link {
+            display: inline-block;
+            border-top: none;
+
+            &:after {
+                content: '';
+                display: inline-block;
+                width: 1px;
+                height: 19px;
+                background: rgba(0, 0, 0, .15);
+                margin: 0 10px;
+                position: relative;
+                top: 4px;
+            }
+
+            &:last-of-type:after {
+                display: none;
+            }
         }
     }
 }
