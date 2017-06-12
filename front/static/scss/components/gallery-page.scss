@@ -15,9 +15,19 @@
         margin: 0 auto 40px auto;
     }
 
+    .gallery-images-container {
+        margin-top: -50px;
+        opacity: 0;
+        transition: all 1s;
+
+        &.loaded {
+            margin-top: 0;
+            opacity: 1;
+        }
+    }
+
     .gallery-image {
         display: block;
-        animation: gallery-image-animation 1s;
 
         & > img {
             display: block;
@@ -61,18 +71,5 @@
                 transform: scale(1.025);
             }
         }
-    }
-}
-
-
-@keyframes gallery-image-animation {
-    from {
-        margin-top: -50px;
-        opacity: 0;
-    }
-
-    to {
-        margin-top: 0;
-        opacity: 1;
     }
 }

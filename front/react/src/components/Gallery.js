@@ -23,8 +23,16 @@ export default class Gallery extends Component {
         wall.fitWidth();
       }
     });
-    wall.container.find('.gallery-image img').load(function () {
-      wall.fitWidth();
+    let imagesLoaded = 0;
+    let imageElements = wall.container.find('.gallery-image img');
+    imageElements.load(function () {
+      imagesLoaded += 1;
+      if (imageElements.length == imagesLoaded) {
+        wall.fitWidth();
+        setTimeout(function() {
+          wall.container.addClass('loaded');
+        }, 500);
+      }
     });
   }
 
