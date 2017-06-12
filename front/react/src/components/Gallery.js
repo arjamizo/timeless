@@ -16,7 +16,7 @@ export default class Gallery extends Component {
     wall.reset({
       selector: '.gallery-image',
       animate: true,
-      cellW: 150,
+      cellW: 250,
       cellH: 'auto',
       onResize: function () {
         wall.fitWidth();
