@@ -13,7 +13,6 @@ export default (state = defaultState, action) => {
     case TOGGLE_NAVIGATION:
       return Object.assign({}, state, {expanded: !state.expanded});
     case LOCATION_CHANGE:
-      console.log("FOO BAR BAZ");
       return Object.assign({}, state, {expanded: false});
     default:
       return state;
