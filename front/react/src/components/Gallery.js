@@ -18,6 +18,7 @@ export default class Gallery extends Component {
       animate: true,
       cellW: 250,
       cellH: 'auto',
+      delay: 50,
       onResize: function () {
         wall.fitWidth();
       }

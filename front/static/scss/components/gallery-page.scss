@@ -17,9 +17,62 @@
 
     .gallery-image {
         display: block;
+        animation: gallery-image-animation 1s;
 
-        img {
+        & > img {
+            display: block;
             width: 100%;
+            border: 10px solid #FFF;
+            box-sizing: border-box;
+            transition: all .15s;
         }
+
+        .zoom-overlay {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, .5);
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: scale(1.025);
+            opacity: 0;
+            transition: all .15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .zoom-icon {
+            max-width: 40%;
+            max-height: 40%;
+            opacity: .9;
+        }
+
+        &:hover {
+            z-index: 10;
+            cursor: zoom-in;
+
+            .zoom-overlay {
+                opacity: 1;
+            }
+
+            & > img {
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+                transform: scale(1.025);
+            }
+        }
+    }
+}
+
+
+@keyframes gallery-image-animation {
+    from {
+        margin-top: -50px;
+        opacity: 0;
+    }
+
+    to {
+        margin-top: 0;
+        opacity: 1;
     }
 }
